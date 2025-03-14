@@ -61,15 +61,14 @@ exports.submitGuess = async (req, res) => {
     
     // Update the game state based on the judgement
     if (judgement.isCorrect) {
-      // Correct guess
+      // Correct guess - game concluded
       return res.status(200).json({
         success: true,
         result: 'correct',
         message: 'Congratulations! You found the hidden link!'
       });
     } else if (judgement.isReasonable) {
-      // Reasonable but incorrect guess
-      // Add a new word as a hint
+      // Reasonable but incorrect guess (miss) - add a new word hint
       if (game.remainingWords.length > 0) {
         const nextWord = judgement.suggestedWord || game.remainingWords.shift();
         game.words.push(nextWord);
@@ -77,12 +76,12 @@ exports.submitGuess = async (req, res) => {
       
       return res.status(200).json({
         success: true,
-        result: 'reasonable',
+        result: 'miss',  // Changed from "reasonable" to "miss"
         message: 'That\'s a reasonable connection, but not what we\'re looking for.',
         words: game.words
       });
     } else {
-      // Irrelevant guess
+      // Irrelevant guess (incorrect) - lose a life
       game.lives -= 1;
       
       if (game.lives <= 0) {
@@ -96,7 +95,7 @@ exports.submitGuess = async (req, res) => {
       
       return res.status(200).json({
         success: true,
-        result: 'irrelevant',
+        result: 'incorrect',  // Changed from "irrelevant" to "incorrect"
         message: 'That doesn\'t seem to connect these words. You lost a life!',
         lives: game.lives
       });

@@ -110,7 +110,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 130px;
+  margin-bottom: 80px; /* Reduced from 130px */
   position: relative;
   z-index: 5;
   border: 1px dashed rgba(255, 255, 255, 0.15);
@@ -143,38 +143,13 @@ main {
   opacity: 0.3;
 }
 
-/* Connector points on the circle */
+/* Connector points on the circle - hidden */
 .central-circle .circle-connectors {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+  display: none; /* Hide the entire connectors container */
 }
 
 .central-circle .connector {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background-color: var(--accent-color);
-  border-radius: 50%;
-}
-
-.central-circle .connector.left {
-  bottom: 35px;
-  left: 35px;
-  box-shadow: 0 0 8px var(--accent-glow);
-}
-
-.central-circle .connector.center {
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  box-shadow: 0 0 8px var(--accent-glow);
-}
-
-.central-circle .connector.right {
-  bottom: 35px;
-  right: 35px;
-  box-shadow: 0 0 8px var(--accent-glow);
+  display: none; /* Hide all connector dots */
 }
 
 .input-area {
@@ -267,8 +242,8 @@ main {
 .connections-area {
   width: 100%;
   position: relative;
-  margin-top: -160px; /* Increased to pull up connection area more */
-  padding-bottom: 20px; /* Add space for the connection lines */
+  margin-top: -60px; /* Reduced from -160px */
+  padding-bottom: 20px;
 }
 
 .word-container {
@@ -277,11 +252,10 @@ main {
   gap: 12rem;
   width: 100%;
   position: relative;
-  padding-top: 150px; /* Add space for connection lines */
+  padding-top: 50px; /* Reduced from 150px */
 }
 
 .word-card {
-  --connection-angle: 0deg;
   padding: 0.75rem 1.5rem;
   background-color: var(--card-color);
   color: var(--text-color);
@@ -295,25 +269,14 @@ main {
   border-left: 3px solid var(--accent-color);
   position: relative;
   z-index: 3;
-  margin-top: 20px; /* Add space above word cards for lines */
+  margin-top: 0; /* Reduced from 20px */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Connection lines with dynamic angles */
+/* Connection lines with dynamic angles - hidden */
 .word-card::before {
-  content: '';
-  position: absolute;
-  top: -120px;
-  left: 50%;
-  width: 1px;
-  height: 150px;
-  background: var(--line-color);
-  z-index: 1;
-  transform-origin: bottom;
-  transform: translateX(-50%) rotate(var(--connection-angle));
+  display: none; /* Hide all connection lines */
 }
-
-/* Remove curve effect */
 
 .word-card:nth-child(1) {
   animation-delay: 0.1s;
@@ -429,7 +392,7 @@ footer {
   .central-circle {
     width: 250px;
     height: 250px;
-    margin-bottom: 120px;
+    margin-bottom: 80px; /* Reduced from 120px */
   }
   
   .input-area {
@@ -437,23 +400,14 @@ footer {
   }
   
   .connections-area {
-    margin-top: -120px;
+    margin-top: -60px; /* Reduced from -120px */
   }
   
   .word-container {
     flex-direction: column;
     gap: 2rem;
     align-items: center;
-    padding-top: 120px;
+    padding-top: 50px; /* Reduced from 120px */
   }
   
-  .word-card::before {
-    height: 120px;
-    top: -120px;
-  }
-  
-  /* Reset angles for mobile as they're stacked vertically */
-  .word-card {
-    --connection-angle: 0deg;
-  }
 }

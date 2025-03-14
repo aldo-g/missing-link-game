@@ -91,22 +91,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Create visual connections between the circle and the words
   function updateConnections() {
     // This function adjusts connection angles based on word count
-    const cards = wordContainer.querySelectorAll('.word-card');
-    
-    // For exactly 3 cards, set specific angles
-    if (cards.length === 3) {
-      cards[0].style.setProperty('--connection-angle', '28deg');
-      cards[1].style.setProperty('--connection-angle', '0deg');
-      cards[2].style.setProperty('--connection-angle', '-28deg');
-    }
-    // For more than 3 cards, distribute angles
-    else if (cards.length > 3) {
-      const maxAngle = 38;
-      cards.forEach((card, i) => {
-        const angle = maxAngle - (i * (2 * maxAngle / (cards.length - 1)));
-        card.style.setProperty('--connection-angle', `${angle}deg`);
-      });
-    }
+    // No longer needed since we've removed the connection lines
+    // but keeping the function for compatibility
   }
   
   // Update the lives display
@@ -147,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Mark that the user has played today
         setLastPlayed();
         
-        // Handle different results
+        // Handle different results with the updated response types
         switch(data.result) {
           case 'correct':
             showMessage(data.message, 'message-correct');
@@ -155,13 +141,13 @@ document.addEventListener('DOMContentLoaded', () => {
             showNextGameTime();
             break;
             
-          case 'reasonable':
+          case 'miss': // Changed from "reasonable" to "miss"
             showMessage(data.message, 'message-reasonable');
             gameState.words = data.words;
             updateWordsDisplay();
             break;
             
-          case 'irrelevant':
+          case 'incorrect': // Changed from "irrelevant" to "incorrect"
             showMessage(data.message, 'message-irrelevant');
             gameState.lives = data.lives;
             updateLivesDisplay();
@@ -188,8 +174,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
   
-  // Hint functionality removed
-  
   // Show a message
   function showMessage(message, className = '') {
     messageContainer.textContent = message;
@@ -203,6 +187,18 @@ document.addEventListener('DOMContentLoaded', () => {
   function disableGameplay() {
     guessInput.disabled = true;
     submitGuessBtn.disabled = true;
+  }
+  
+  // Show next game time
+  function showNextGameTime() {
+    nextGameInfo.innerHTML = 'New puzzle at midnight';
+    nextGameInfo.classList.add('visible');
+  }
+  
+  // Set last played date in localStorage
+  function setLastPlayed() {
+    const today = new Date().toISOString().split('T')[0];
+    localStorage.setItem('lastPlayed', today);
   }
   
   // Event listeners
