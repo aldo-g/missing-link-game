@@ -1,0 +1,42 @@
+[
+    {
+      "words": ["Crane", "Bodybuilder", "Elevator", "Updraft", "Forklift", "Jack"],
+      "link": "things that lift"
+    },
+    {
+      "words": ["Apple", "Earth", "Newton", "Gravity", "Fall", "Orbit"],
+      "link": "things related to gravity"
+    },
+    {
+      "words": ["Book", "Tree", "Website", "Newspaper", "Brochure", "Manual"],
+      "link": "things made from paper or contain pages"
+    },
+    {
+      "words": ["Spider", "Web", "Internet", "Network", "Fisherman", "Social Media"],
+      "link": "things that involve webs or networks"
+    },
+    {
+      "words": ["Camera", "Memory", "Diary", "Photo Album", "Souvenir", "Mind"],
+      "link": "things that capture or store memories"
+    },
+    {
+      "words": ["Sun", "Light Bulb", "Firefly", "Star", "Lamp", "LED"],
+      "link": "things that emit light"
+    },
+    {
+      "words": ["Bird", "Airplane", "Butterfly", "Drone", "Helicopter", "Bat"],
+      "link": "things that fly"
+    },
+    {
+      "words": ["Clock", "Calendar", "Hourglass", "Watch", "Sundial", "Timer"],
+      "link": "things that measure time"
+    },
+    {
+      "words": ["River", "Road", "Pipeline", "Vein", "Highway", "Wire"],
+      "link": "things that transport or flow"
+    },
+    {
+      "words": ["Mountain", "Iceberg", "Pyramid", "Volcano", "Triangle", "Tower"],
+      "link": "things with a pointed shape or peak"
+    }
+  ]

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Missing Link</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <h1 class="title">MISSING LINK</h1>
+      <div class="lives-container">
+        <span class="life"></span>
+        <span class="life"></span>
+        <span class="life"></span>
+      </div>
+    </header>
+    
+    <main>
+      <div class="game-area">
+        <div class="central-circle">
+          <div class="circle-connectors">
+            <div class="connector left"></div>
+            <div class="connector center"></div>
+            <div class="connector right"></div>
+          </div>
+          <div class="input-area">
+            <input type="text" id="guess-input" placeholder="What's the missing link?">
+            <button id="submit-guess">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="connections-area">
+          <div class="word-container" id="word-container">
+            <!-- Word cards will be generated here -->
+          </div>
+        </div>
+        
+        <div class="message-container" id="message-container"></div>
+      </div>
+      
+      <div class="next-game-container" id="next-game-info"></div>
+    </main>
+    
+    <footer>
+      <p>New puzzle at midnight</p>
+    </footer>
+  </div>
+  
+  <script src="js/game.js"></script>
+</body>
+</html>
